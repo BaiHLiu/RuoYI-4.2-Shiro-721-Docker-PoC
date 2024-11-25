@@ -44,4 +44,8 @@ COPY RuoYi-4.2 /workspace/RuoYi-4.2
 COPY run.sh /workspace/
 RUN chmod +x /workspace/run.sh
 
+# 初次打包，建立缓存以提升后续运行速度
+RUN cd RuoYi-4.2 && mvn install
+
+
 CMD ["/bin/bash", "/workspace/run.sh"]
